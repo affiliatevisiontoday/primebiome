@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://affiliatevisiontoday.github.io/primebiome/sitemap.xml
