@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeBiome Pro - Transform Your Health Today</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            text-align: left;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image {
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(238, 90, 82, 0.4);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(238, 90, 82, 0.6);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+
+        .check-icon {
+            width: 30px;
+            height: 30px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #667eea;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-image {
+            width: 150px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            object-fit: contain;
+        }
+
+        .package-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+
+        .per-bottle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin: 1.5rem 0;
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-features li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Floating elements */
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Pulse effect for CTA */
+        .pulse-ring {
+            position: absolute;
+            border: 3px solid rgba(255, 107, 107, 0.3);
+            border-radius: 50px;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            animation: pulsate 2s ease-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">PrimeBiome Pro</div>
+            <div>
+                <a href="#features" style="color: white; text-decoration: none; margin-right: 2rem;">Features</a>
+                <a href="#pricing" style="color: white; text-decoration: none;">Order Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Health in 30 Days</h1>
+                    <p class="subtitle">The #1 Gut Health Solution Trusted by Over 100,000 People Worldwide</p>
+                    <a href="#pricing" class="cta-button" style="position: relative;">
+                        <div class="pulse-ring"></div>
+                        Get PrimeBiome Pro Now - Special Offer
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://www.dropbox.com/scl/fi/zfvcsp2kcwphiup89z3o5/PRIMEBIOME.png?rlkey=g6iycexg55hgcgig5k1eh54fg&st=9901g2so&raw=1" alt="PrimeBiome Pro Product" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why PrimeBiome Pro Works</h2>
+            <div class="features-grid">
+                <div class="feature-card floating">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Advanced Formula</h3>
+                    <p>Our proprietary blend of 15 premium probiotic strains is scientifically formulated to restore your gut microbiome balance naturally.</p>
+                </div>
+                <div class="feature-card floating" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Results</h3>
+                    <p>Experience improved digestion, increased energy, and better mood within just 7-14 days of consistent use.</p>
+                </div>
+                <div class="feature-card floating" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Clinically Tested</h3>
+                    <p>Backed by 15+ clinical studies and manufactured in FDA-approved facilities with the highest quality standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">What You'll Experience</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="check-icon">✓</div>
+                    <span>Improved Digestion & Reduced Bloating</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon">✓</div>
+                    <span>Increased Energy & Mental Clarity</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon">✓</div>
+                    <span>Stronger Immune System</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon">✓</div>
+                    <span>Better Mood & Reduced Stress</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon">✓</div>
+                    <span>Healthier Skin & Appearance</span>
+                </div>
+                <div class="benefit-item">
+                    <div class="check-icon">✓</div>
+                    <span>Enhanced Nutrient Absorption</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"I've struggled with digestive issues for years. PrimeBiome Pro changed my life completely! I feel energized and healthy again."</p>
+                    <strong>- Sarah M., California</strong>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"The results were incredible. My bloating disappeared, my energy skyrocketed, and I've never felt better. Highly recommend!"</p>
+                    <strong>- Michael R., Texas</strong>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"This product actually works! I noticed improvements within the first week. My whole family is now using PrimeBiome Pro."</p>
+                    <strong>- Jennifer L., New York</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Package</h2>
+            <div class="pricing-grid">
+                <!-- 2 Bottles Package -->
+                <div class="pricing-card">
+                    <img src="https://www.dropbox.com/scl/fi/n0on0f4z5040wwhexa453/prod_2_bottle.png?rlkey=vyl2jx6yni9jkby4fq1apkz5a&st=wn60w6xf&raw=1" alt="2 Bottles" class="product-image">
+                    <div class="package-title">2 Bottles</div>
+                    <div class="price">$138</div>
+                    <div class="per-bottle">$69 per bottle</div>
+                    <ul class="pricing-features">
+                        <li>2-Month Supply</li>
+                        <li>FREE Shipping</li>
+                        <li>60-Day Money Back Guarantee</li>
+                    </ul>
+                    <a href="https://getprimebiome.com/text.php?affiliate=vendrikzzz" class="cta-button" style="display: block; margin-top: 1.5rem;">
+                        Order Now
+                    </a>
+                </div>
+
+                <!-- 6 Bottles Package (Featured) -->
+                <div class="pricing-card featured">
+                    <img src="https://www.dropbox.com/scl/fi/xntrvvd554z0bgb9yr6cv/prod_6_bottle.png?rlkey=32xfjvlk3423emiho8eua0d2c&st=uk7m4qkp&raw=1" alt="6 Bottles" class="product-image">
+                    <div class="package-title">6 Bottles</div>
+                    <div class="price">$294</div>
+                    <div class="per-bottle">$49 per bottle</div>
+                    <ul class="pricing-features">
+                        <li>6-Month Supply</li>
+                        <li>FREE Shipping Worldwide</li>
+                        <li>60-Day Money Back Guarantee</li>
+                        <li>FREE Bonus: Gut Health Guide</li>
+                        <li>Best Value - Save $120</li>
+                    </ul>
+                    <a href="https://getprimebiome.com/text.php?affiliate=vendrikzzz" class="cta-button" style="display: block; margin-top: 1.5rem;">
+                        Order Now - Best Value
+                    </a>
+                </div>
+
+                <!-- 3 Bottles Package -->
+                <div class="pricing-card">
+                    <img src="https://www.dropbox.com/scl/fi/r7of0o39gn7lamzuvgjjn/prod_3_bottle.png?rlkey=0icl3wsbhguql16ebxly87vr0&st=g6n905s6&raw=1" alt="3 Bottles" class="product-image">
+                    <div class="package-title">3 Bottles</div>
+                    <div class="price">$177</div>
+                    <div class="per-bottle">$59 per bottle</div>
+                    <ul class="pricing-features">
+                        <li>3-Month Supply</li>
+                        <li>FREE Shipping</li>
+                        <li>60-Day Money Back Guarantee</li>
+                        <li>Popular Choice</li>
+                    </ul>
+                    <a href="https://getprimebiome.com/text.php?affiliate=vendrikzzz" class="cta-button" style="display: block; margin-top: 1.5rem;">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PrimeBiome Pro. All rights reserved. | <a href="#" style="color: #667eea;">Privacy Policy</a> | <a href="#" style="color: #667eea;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (24 * 60 * 60 * 1000); // 24 hours from now
+            const timeLeft = endTime - now;
+            
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Order button functionality
+        function orderNow(package) {
+            if (package) {
+                alert(`Order functionality for ${package} would be integrated with your payment processor (Stripe, PayPal, etc.)`);
+            } else {
+                alert('Order functionality would be integrated with your payment processor (Stripe, PayPal, etc.)');
+            }
+        }
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and testimonials
+        document.querySelectorAll('.feature-card, .testimonial, .benefit-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
