@@ -1,3 +1,30 @@
+# robots.txt for PrimeBiome Pro
+# https://affiliatevisiontoday.github.io/primebiome/
+
+# Allow all web crawlers to access the site
 User-agent: *
 Allow: /
+
+# Specifically allow major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Crawl-delay for all bots (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://affiliatevisiontoday.github.io/primebiome/sitemap.xml
+
+# Additional notes:
+# - This robots.txt allows all search engines to crawl the entire site
+# - The sitemap helps search engines discover and index your content
+# - Make sure to place both files in the root directory of your repository
